@@ -7,7 +7,7 @@ LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e[0m
+N="\e[0m"
 echo "Please enter DB password:"
 read -s mysql_root_password
 
@@ -36,7 +36,7 @@ dnf module enable nodejs:20 -y &>>$LOGFILE
 VALIDATE $? "Enabling nodejs:20 version"
 
 dnf install nodejs -y &>>$LOGFILE
-VALIDATE $? "Installing nodejs
+VALIDATE $? "Installing nodejs"
 
 id expense &>>$LOGFILE
 if [ $? -ne 0 ]
@@ -82,8 +82,3 @@ VALIDATE $? "Schema loading"
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting Backend"
-
-
-
-
-
